@@ -9,6 +9,7 @@ const Container = styled(TouchableOpacity)`
   padding: 15px;
   background-color: ${({ variant, theme }) => theme.colors[variant]};
   align-items: center;
+  align-self: flex-start;
   justify-content: center;
   box-shadow: 0px 2px 4px ${({ theme }) => `${theme.colors.primary50}`};
   elevation: 8;
