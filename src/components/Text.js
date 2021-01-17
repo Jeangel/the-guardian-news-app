@@ -33,8 +33,5 @@ export const Text = ({ variant = 'body', style, children }) => {
     }
   };
   const textStyles = getTextStyles();
-
-  console.log(theme);
-
   return <BaseText style={{ ...style, ...textStyles }}>{children}</BaseText>;
 };

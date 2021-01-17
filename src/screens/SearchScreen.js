@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button } from 'react-native';
+import { Button } from 'react-native';
 import { Text } from '../components/Text';
 import { Surface } from '../components/Surface';
 import { useAppContext } from '../contexts/AppContext';

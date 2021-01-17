@@ -19,7 +19,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <AppProvider themeMode={themeMode} toggleThemeMode={toggleThemeMode}>
         <NavigationContainer>
-          <StatusBar barStyle="dark-content" />
+          <StatusBar
+            barStyle={themeMode === 'light' ? 'dark-content' : 'light-content'}
+          />
           <Routes />
         </NavigationContainer>
       </AppProvider>
