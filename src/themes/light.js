@@ -1,4 +1,5 @@
 export const light = {
+  name: 'light',
   colors: {
     surface: '#FFFFFF',
     text: '#343B3C',

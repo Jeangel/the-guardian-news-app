@@ -20,6 +20,12 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8A6ED7D08F236EF8BDB7618B /* libPods-NewsApp-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F4290DCEB7D0BA249414F61 /* libPods-NewsApp-tvOSTests.a */; };
 		DB7639C3517D10122ED6B4F0 /* libPods-NewsApp-NewsAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CEB250AA7E9C701A57432D7 /* libPods-NewsApp-NewsAppTests.a */; };
+		F3DD65F4AA854BC1950A3D4A /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F21610A49AF48DEA63779FA /* DMSans-Bold.ttf */; };
+		A98CB756DC434AEE9EF0BCB6 /* DMSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F842CD02293C48CCBA97ED89 /* DMSans-BoldItalic.ttf */; };
+		6C0826B0D02941B6BF6D3351 /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A5FCF58D9DFB48668E49FEB6 /* DMSans-Italic.ttf */; };
+		8A33F0CEE67E4DC18A18CCAB /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 603C37FEEDA54CC1A831440A /* DMSans-Medium.ttf */; };
+		CE3F77AEC105416786D2BF64 /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E2E3B54A4CB54F77BAE982FA /* DMSans-MediumItalic.ttf */; };
+		40A3FADE6C8D4C9290E711C1 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CADBCF3FAAD64514BD95E47F /* DMSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,12 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F0F982667044F904D905D5D5 /* Pods-NewsApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-NewsApp-tvOSTests/Pods-NewsApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F21610A49AF48DEA63779FA /* DMSans-Bold.ttf */ = {isa = PBXFileReference; name = "DMSans-Bold.ttf"; path = "../assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F842CD02293C48CCBA97ED89 /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; name = "DMSans-BoldItalic.ttf"; path = "../assets/fonts/DMSans-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A5FCF58D9DFB48668E49FEB6 /* DMSans-Italic.ttf */ = {isa = PBXFileReference; name = "DMSans-Italic.ttf"; path = "../assets/fonts/DMSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		603C37FEEDA54CC1A831440A /* DMSans-Medium.ttf */ = {isa = PBXFileReference; name = "DMSans-Medium.ttf"; path = "../assets/fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E2E3B54A4CB54F77BAE982FA /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; name = "DMSans-MediumItalic.ttf"; path = "../assets/fonts/DMSans-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CADBCF3FAAD64514BD95E47F /* DMSans-Regular.ttf */ = {isa = PBXFileReference; name = "DMSans-Regular.ttf"; path = "../assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +193,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				8210AC2DB6F226640E2319D2 /* Pods */,
+				93F4FC3B2C9D4280B3D24757 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +210,20 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		93F4FC3B2C9D4280B3D24757 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				2F21610A49AF48DEA63779FA /* DMSans-Bold.ttf */,
+				F842CD02293C48CCBA97ED89 /* DMSans-BoldItalic.ttf */,
+				A5FCF58D9DFB48668E49FEB6 /* DMSans-Italic.ttf */,
+				603C37FEEDA54CC1A831440A /* DMSans-Medium.ttf */,
+				E2E3B54A4CB54F77BAE982FA /* DMSans-MediumItalic.ttf */,
+				CADBCF3FAAD64514BD95E47F /* DMSans-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -342,6 +369,12 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				F3DD65F4AA854BC1950A3D4A /* DMSans-Bold.ttf in Resources */,
+				A98CB756DC434AEE9EF0BCB6 /* DMSans-BoldItalic.ttf in Resources */,
+				6C0826B0D02941B6BF6D3351 /* DMSans-Italic.ttf in Resources */,
+				8A33F0CEE67E4DC18A18CCAB /* DMSans-Medium.ttf in Resources */,
+				CE3F77AEC105416786D2BF64 /* DMSans-MediumItalic.ttf in Resources */,
+				40A3FADE6C8D4C9290E711C1 /* DMSans-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
