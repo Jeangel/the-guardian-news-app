@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
-import { Text } from '../components/Text';
-import { Surface } from '../components/Surface';
+import { Text } from '../components/atoms/Text';
+import { Surface } from '../components/atoms/Surface';
 import { useAppContext } from '../contexts/AppContext';
 
 export const SearchScreen = ({ navigation }) => {

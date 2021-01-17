@@ -1,7 +1,8 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { Text as RNText, TextStyle } from 'react-native';
 import styled from 'styled-components';
-import { useTheme } from '../hooks';
+import { useTheme } from '../../hooks';
 
 /**
  * Possible variants for the Text component
