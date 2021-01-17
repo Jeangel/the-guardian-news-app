@@ -12,8 +12,7 @@ const Container = styled(View)`
 `;
 
 const Date = styled(Text)`
-  padding-left: 10px;
-  padding-top: 2px;
+  padding-left: 5px;
   color: ${({ color }) => color};
 `;
 
@@ -27,8 +26,10 @@ const Date = styled(Text)`
 export const NewsDate = ({ date, color }) => {
   return (
     <Container>
-      <Icon name="calendar" size={19} color={color} />
-      <Date color={color}>{date}</Date>
+      <Icon name="calendar" size={15} color={color} />
+      <Date variant="small" color={color}>
+        {date}
+      </Date>
     </Container>
   );
 };

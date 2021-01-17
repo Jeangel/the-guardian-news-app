@@ -12,8 +12,7 @@ const Container = styled(View)`
 `;
 
 const Time = styled(Text)`
-  padding-left: 10px;
-  padding-top: 2px;
+  padding-left: 5px;
   color: ${({ color }) => color};
 `;
 
@@ -27,8 +26,10 @@ const Time = styled(Text)`
 export const NewsReadingTime = ({ wordsAmount, color }) => {
   return (
     <Container>
-      <Icon name="clock" size={19} color={color} />
-      <Time color={color}>{wordsAmount}</Time>
+      <Icon name="clock" size={15} color={color} />
+      <Time variant="small" color={color}>
+        {wordsAmount}
+      </Time>
     </Container>
   );
 };
