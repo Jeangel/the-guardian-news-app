@@ -2,6 +2,7 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { Text as RNText, TextStyle } from 'react-native';
 import styled from 'styled-components';
+import _ from 'lodash';
 import { useTheme } from '../../hooks';
 
 /**
@@ -47,5 +48,9 @@ export const Text = ({ variant = 'body', style, children }) => {
     }
   };
   const textStyles = getTextStyles();
-  return <BaseText style={{ ...style, ...textStyles }}>{children}</BaseText>;
+  return (
+    <BaseText style={{ ..._.flatten(style), ...textStyles }}>
+      {children}
+    </BaseText>
+  );
 };
