@@ -2,8 +2,6 @@ import React from 'react';
 // eslint-disable-next-line no-unused-vars
 import { Text as RNText, TextStyle } from 'react-native';
 import styled from 'styled-components';
-import _ from 'lodash';
-import { useTheme } from '../../hooks';
 
 /**
  * Possible variants for the Text component
@@ -14,6 +12,25 @@ const BaseText = styled(RNText)`
   font-family: 'DM Sans';
 `;
 
+const BodyText = styled(BaseText)`
+  font-size: 14px;
+  line-height: 15px;
+  color: ${({ theme }) => theme.colors.text};
+`;
+
+const H1Text = styled(BaseText)`
+  font-size: 28px;
+  line-height: 32px;
+  color: ${({ theme }) => theme.colors.secondary};
+  font-weight: 900;
+`;
+
+const ButtonText = styled(BaseText)`
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.white};
+  font-weight: 700;
+`;
+
 /**
  * Wrapper for the RN Text component.
  * @param {{
@@ -22,35 +39,21 @@ const BaseText = styled(RNText)`
  * }} props
  */
 export const Text = ({ variant = 'body', style, children }) => {
-  const theme = useTheme();
   /**
-   * @returns {TextStyle} styles
+   * @returns {React.ReactNode} component
    */
-  const getTextStyles = () => {
+  const getTextComponent = () => {
     switch (variant) {
       case 'body':
-        return { fontSize: 14, lineHeight: 15, color: theme.colors.text };
+        return BodyText;
       case 'h1':
-        return {
-          fontSize: 28,
-          lineHeight: 32,
-          color: theme.colors.secondary,
-          fontWeight: '900',
-        };
+        return H1Text;
       case 'button':
-        return {
-          fontSize: 18,
-          color: theme.colors.white,
-          fontWeight: '700',
-        };
+        return ButtonText;
       default:
         return {};
     }
   };
-  const textStyles = getTextStyles();
-  return (
-    <BaseText style={{ ..._.flatten(style), ...textStyles }}>
-      {children}
-    </BaseText>
-  );
+  const Component = getTextComponent();
+  return <Component style={style}>{children}</Component>;
 };
