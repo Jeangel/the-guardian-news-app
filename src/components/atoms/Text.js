@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 /**
  * Possible variants for the Text component
- * @typedef {'body' | 'small' | 'h1' | 'h2' | 'input' | 'button'} TextVariant
+ * @typedef {'body' | 'small' | 'h1' | 'h4' | 'input' | 'button'} TextVariant
  */
 
 const BaseText = styled(RNText)`
@@ -18,11 +18,24 @@ const BodyText = styled(BaseText)`
   color: ${({ theme }) => theme.colors.text};
 `;
 
+const SmallText = styled(BaseText)`
+  font-size: 12px;
+  line-height: 16px;
+  color: ${({ theme }) => theme.colors.gray40};
+`;
+
 const H1Text = styled(BaseText)`
   font-size: 28px;
   line-height: 32px;
   color: ${({ theme }) => theme.colors.secondary};
   font-weight: 900;
+`;
+
+const H4Text = styled(BaseText)`
+  font-size: 16px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.text};
+  font-weight: 500;
 `;
 
 const ButtonText = styled(BaseText)`
@@ -38,7 +51,7 @@ const ButtonText = styled(BaseText)`
  *  style?: TextStyle
  * }} props
  */
-export const Text = ({ variant = 'body', style, children }) => {
+export const Text = ({ variant = 'body', style, children, ...rest }) => {
   /**
    * @returns {React.ReactNode} component
    */
@@ -46,8 +59,12 @@ export const Text = ({ variant = 'body', style, children }) => {
     switch (variant) {
       case 'body':
         return BodyText;
+      case 'small':
+        return SmallText;
       case 'h1':
         return H1Text;
+      case 'h4':
+        return H4Text;
       case 'button':
         return ButtonText;
       default:
@@ -55,5 +72,9 @@ export const Text = ({ variant = 'body', style, children }) => {
     }
   };
   const Component = getTextComponent();
-  return <Component style={style}>{children}</Component>;
+  return (
+    <Component style={style} {...rest}>
+      {children}
+    </Component>
+  );
 };
