@@ -9,12 +9,12 @@ import { TextInput } from '../molecules/TextInput';
 const Container = styled(View)`
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `;
 
 const SearchBox = styled(TextInput)`
-  width: 85%;
+  width: 80%;
   margin-right: 6px;
 `;
 

@@ -1,16 +1,36 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { FlatList } from 'react-native';
 import { EmptyState } from './EmptyState';
+import { NewsCard } from '../NewsCard';
 
 /**
  *
  * @param {{
- *  news: Array
+ *  news: Array,
+ *  header: React.ReactNode
  * }} props
  */
-export const NewsList = ({ news = [] }) => {
+export const NewsList = ({ news = [], header }) => {
   if (!news.length) {
     return <EmptyState />;
   }
-  return <ScrollView />;
+
+  const renderItem = ({ item }) => {
+    return <NewsCard news={item} />;
+  };
+
+  const keyExtractor = (_, index) => `key-${index}`;
+
+  const contentContainerStyle = { padding: 8 };
+
+  return (
+    <FlatList
+      ListHeaderComponent={header}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      data={news}
+      contentContainerStyle={contentContainerStyle}
+      showsVerticalScrollIndicator={false}
+    />
+  );
 };
