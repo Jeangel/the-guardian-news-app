@@ -1,26 +1,18 @@
 import React from 'react';
-import { Button } from 'react-native';
+import styled from 'styled-components';
 import { Text } from '../components/atoms/Text';
-import { Surface } from '../components/atoms/Surface';
-import { useAppContext } from '../contexts/AppContext';
+import { Canvas } from '../components/atoms/Canvas';
+import { SearchForm } from '../components/organisms/SearchForm';
+
+const Title = styled(Text)`
+  padding-bottom: 20px;
+`;
 
 export const SearchScreen = ({ navigation }) => {
-  const { toggleThemeMode, themeMode } = useAppContext();
   return (
-    <Surface
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Search Screen</Text>
-      <Text>Search Screen, {themeMode}</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
-      <Button
-        title="wtf"
-        onPress={() => {
-          toggleThemeMode();
-        }}
-      />
-    </Surface>
+    <Canvas>
+      <Title variant="h1">Search {'\n'}your daily news</Title>
+      <SearchForm />
+    </Canvas>
   );
 };

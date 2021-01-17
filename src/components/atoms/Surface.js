@@ -3,4 +3,6 @@ import styled from 'styled-components';
 
 export const Surface = styled(View)`
   background-color: ${({ theme }) => theme.colors.surface};
+  flex: 1;
+  width: 100%;
 `;

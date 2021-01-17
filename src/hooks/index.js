@@ -3,8 +3,9 @@ import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import { light } from '../themes/light';
 import { dark } from '../themes/dark';
+import { shared } from '../themes/shared';
 
 /**
- * @returns {light & dark}
+ * @returns {light & dark & shared}
  */
 export const useTheme = () => useContext(ThemeContext);
