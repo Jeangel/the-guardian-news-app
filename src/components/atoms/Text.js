@@ -24,6 +24,12 @@ const SmallText = styled(BaseText)`
   color: ${({ theme }) => theme.colors.gray40};
 `;
 
+const ExtraSmallText = styled(BaseText)`
+  font-size: 10px;
+  line-height: 16px;
+  color: ${({ theme }) => theme.colors.gray40};
+`;
+
 const H1Text = styled(BaseText)`
   font-size: 28px;
   line-height: 32px;
@@ -61,6 +67,8 @@ export const Text = ({ variant = 'body', style, children, ...rest }) => {
         return BodyText;
       case 'small':
         return SmallText;
+      case 'extra-small':
+        return ExtraSmallText;
       case 'h1':
         return H1Text;
       case 'h4':
@@ -73,7 +81,7 @@ export const Text = ({ variant = 'body', style, children, ...rest }) => {
   };
   const Component = getTextComponent();
   return (
-    <Component style={style} {...rest}>
+    <Component style={style} {...rest} allowFontScaling={false}>
       {children}
     </Component>
   );
