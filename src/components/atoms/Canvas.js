@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledSafeAreaView = styled(SafeAreaView)`
   background-color: ${({ theme }) => theme.colors.surface};
   flex: 1;
-  padding: 40px 20px 0 20px;
+  padding: 40px 15px 0 15px;
 `;
 
 export const Canvas = ({ children }) => {
