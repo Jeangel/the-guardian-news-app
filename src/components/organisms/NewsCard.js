@@ -17,12 +17,12 @@ const Container = styled(Surface)`
 `;
 
 const NewsInformationContainer = styled(View)`
-  width: 60%;
+  width: 65%;
   padding: 2px 0;
 `;
 
 const ThumbnailContainer = styled(View)`
-  width: 40%;
+  width: 35%;
   padding-right: 10px;
 `;
 
@@ -65,13 +65,14 @@ export const NewsCard = () => {
         <Title variant="h4" numberOfLines={3}>
           Colombia protests against police brutality leave at least 10 dead.
         </Title>
-        <Description variant="small" numberOfLines={8}>
+        <Description variant="small" numberOfLines={6} ellipsizeMode="tail">
           Unrest sparked by police killing of lawyer in Bogotá spreads to
-          Medellín, Cali and Manizales.
+          Medellín, Cali and Manizales.{'\n'}Unrest sparked by police killing of
+          lawyer in Bogotá spreads to Medellín, Cali and Manizales.
         </Description>
         <DateAndTimeContainer>
-          <NewsDate date={'Some stuff'} color={colors.text} />
-          <NewsReadingTime wordsAmount={'Some stuff'} color={colors.text} />
+          <NewsDate date={'2020-12-29T18:55:51Z'} color={colors.text} />
+          <NewsReadingTime wordsAmount={800} color={colors.text} />
         </DateAndTimeContainer>
       </NewsInformationContainer>
     </Container>
