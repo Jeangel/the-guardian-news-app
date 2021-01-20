@@ -21,7 +21,7 @@ export const NewsList = ({ news = [], header }) => {
 
   const keyExtractor = (_, index) => `key-${index}`;
 
-  const contentContainerStyle = { padding: 8 };
+  const contentContainerStyle = { padding: 5 };
 
   return (
     <FlatList
