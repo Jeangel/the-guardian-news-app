@@ -48,7 +48,8 @@ const DateAndTimeContainer = styled(View)`
   width: 100%;
 `;
 
-export const NewsCard = () => {
+export const NewsCard = ({ newsItem }) => {
+  const { title, description, date, wordsCount, thumbnailUrl } = newsItem;
   const { colors } = useTheme();
   return (
     <Container>
@@ -56,23 +57,20 @@ export const NewsCard = () => {
         <Thumbnail
           resizeMode="cover"
           source={{
-            uri:
-              'https://media.guim.co.uk/988ee711d2dc75cb62c0a88957fda40ee175fdb0/440_500_1926_1156/500.jpg',
+            uri: thumbnailUrl,
           }}
         />
       </ThumbnailContainer>
       <NewsInformationContainer>
         <Title variant="h4" numberOfLines={3}>
-          Colombia protests against police brutality leave at least 10 dead.
+          {title}
         </Title>
         <Description variant="small" numberOfLines={6} ellipsizeMode="tail">
-          Unrest sparked by police killing of lawyer in Bogotá spreads to
-          Medellín, Cali and Manizales.{'\n'}Unrest sparked by police killing of
-          lawyer in Bogotá spreads to Medellín, Cali and Manizales.
+          {description}
         </Description>
         <DateAndTimeContainer>
-          <NewsDate date={'2020-12-29T18:55:51Z'} color={colors.text} />
-          <NewsReadingTime wordsAmount={800} color={colors.text} />
+          <NewsDate date={date} color={colors.text} />
+          <NewsReadingTime wordsCount={wordsCount} color={colors.text} />
         </DateAndTimeContainer>
       </NewsInformationContainer>
     </Container>

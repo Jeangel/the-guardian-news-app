@@ -16,7 +16,7 @@ export const NewsList = ({ news = [], header }) => {
   }
 
   const renderItem = ({ item }) => {
-    return <NewsCard news={item} />;
+    return <NewsCard newsItem={item} />;
   };
 
   const keyExtractor = (_, index) => `key-${index}`;
