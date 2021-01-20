@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import themes from './src/themes';
 import { Routes } from './src/navigation';
-import AppProvider from './src/contexts/AppContext';
+import { AppProvider } from './src/contexts/AppContext';
 
 const App = () => {
   const [themeMode, setThemeMode] = useState('light');

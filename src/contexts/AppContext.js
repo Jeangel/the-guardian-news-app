@@ -7,10 +7,9 @@ export const AppContext = React.createContext({
 
 export const useAppContext = () => React.useContext(AppContext);
 
-const AppProvider = ({ children, ...rest }) => {
+export const AppProvider = ({ children, ...rest }) => {
   return (
     <AppContext.Provider value={{ ...rest }}>{children}</AppContext.Provider>
   );
 };
 
-export default AppProvider;
