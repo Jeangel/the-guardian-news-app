@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { DateTime } from 'luxon';
 import styled from 'styled-components';
 import { Icon } from '../atoms/Icon';
 import { Text } from '../atoms/Text';
@@ -14,6 +15,7 @@ const Container = styled(View)`
 const Date = styled(Text)`
   padding-left: 5px;
   color: ${({ color }) => color};
+  padding-top: 0.5px;
 `;
 
 /**
@@ -24,11 +26,14 @@ const Date = styled(Text)`
  * }} props
  */
 export const NewsDate = ({ date, color }) => {
+  const formattedDate = DateTime.fromISO(date)
+    .setLocale('en')
+    .toLocaleString(DateTime.DATE_FULL);
   return (
     <Container>
-      <Icon name="calendar" size={15} color={color} />
-      <Date variant="small" color={color}>
-        {date}
+      <Icon name="calendar" size={12} color={color} />
+      <Date variant="extra-small" color={color}>
+        {formattedDate}
       </Date>
     </Container>
   );
