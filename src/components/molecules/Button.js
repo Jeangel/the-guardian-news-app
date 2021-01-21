@@ -38,6 +38,7 @@ export const Button = ({
   variant = 'primary',
   onPress,
   style,
+  ...rest
 }) => {
   const handlePress = () => {
     if (_.isFunction(onPress)) {
@@ -52,7 +53,7 @@ export const Button = ({
   );
 
   return (
-    <Container style={style} onPress={handlePress} variant={variant}>
+    <Container style={style} onPress={handlePress} variant={variant} {...rest}>
       <View>{content}</View>
     </Container>
   );
