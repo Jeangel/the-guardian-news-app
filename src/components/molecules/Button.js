@@ -53,7 +53,12 @@ export const Button = ({
   );
 
   return (
-    <Container style={style} onPress={handlePress} variant={variant} {...rest}>
+    <Container
+      style={style}
+      onPress={handlePress}
+      variant={variant}
+      accessible
+      {...rest}>
       <View>{content}</View>
     </Container>
   );

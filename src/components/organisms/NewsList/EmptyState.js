@@ -11,7 +11,10 @@ const Container = styled(View)`
 
 export const EmptyState = () => {
   return (
-    <Container>
+    <Container
+      accessible
+      accessibilityLabel={'no results'}
+      accessibilityHint={'There are no results'}>
       <Illustration name="reading-articles" />
     </Container>
   );

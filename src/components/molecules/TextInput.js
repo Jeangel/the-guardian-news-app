@@ -37,6 +37,7 @@ export const TextInput = ({
   const { colors } = useTheme();
   return (
     <StyledInput
+      accessible
       value={value}
       onChangeText={onChange}
       placeholder={placeholder}

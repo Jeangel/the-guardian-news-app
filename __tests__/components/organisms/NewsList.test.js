@@ -31,4 +31,8 @@ describe('NewsList Component', () => {
     expect(getByText('Description 2')).toBeTruthy();
     expect(getByText('February 2, 2021')).toBeTruthy();
   });
+  test('Displays the no results component when no news are passed', () => {
+    const { getByA11yLabel } = renderWithTheme(<NewsList news={[]} />);
+    expect(getByA11yLabel('no results')).toBeTruthy();
+  });
 });
