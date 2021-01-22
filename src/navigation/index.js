@@ -1,4 +1,4 @@
 import React from 'react';
-import Main from './main';
+import { SearchStack } from './SearchStack';
 
-export const Routes = () => <Main />;
+export const Routes = () => <SearchStack />;
