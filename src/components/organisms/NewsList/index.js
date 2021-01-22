@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { EmptyState } from './EmptyState';
 import { NewsCard } from '../NewsCard';
+import { useNavigation } from '@react-navigation/native';
 
 /**
  *
@@ -11,12 +12,16 @@ import { NewsCard } from '../NewsCard';
  * }} props
  */
 export const NewsList = ({ news = [], header }) => {
+  const navigation = useNavigation();
   if (!news.length) {
     return <EmptyState />;
   }
 
   const renderItem = ({ item }) => {
-    return <NewsCard newsItem={item} />;
+    const navigateToDetails = () => {
+      navigation.navigate('details', item);
+    };
+    return <NewsCard newsItem={item} onPress={navigateToDetails} />;
   };
 
   const keyExtractor = (_, index) => `key-${index}`;
