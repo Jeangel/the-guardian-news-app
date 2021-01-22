@@ -1,5 +1,6 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import _ from 'lodash';
+import { Image, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components';
 import { Text } from '../atoms/Text';
 import { Surface } from '../atoms/Surface';
@@ -48,31 +49,53 @@ const DateAndTimeContainer = styled(View)`
   width: 100%;
 `;
 
-export const NewsCard = ({ newsItem }) => {
+/**
+ *
+ * @param {{
+ *  newsItem: {
+ *    title: string,
+ *    description: string,
+ *    date: string,
+ *    wordsCount: number,
+ *    thumbnailUrl: string
+ *  },
+ *  onPress: Function
+ * }} props
+ */
+export const NewsCard = ({ newsItem, onPress }) => {
   const { title, description, date, wordsCount, thumbnailUrl } = newsItem;
   const { colors } = useTheme();
+
+  const handlePress = () => {
+    if (_.isFunction(onPress)) {
+      onPress();
+    }
+  };
+
   return (
-    <Container>
-      <ThumbnailContainer>
-        <Thumbnail
-          resizeMode="cover"
-          source={{
-            uri: thumbnailUrl,
-          }}
-        />
-      </ThumbnailContainer>
-      <NewsInformationContainer>
-        <Title variant="h4" numberOfLines={3}>
-          {title}
-        </Title>
-        <Description variant="small" numberOfLines={6} ellipsizeMode="tail">
-          {description}
-        </Description>
-        <DateAndTimeContainer>
-          <NewsDate date={date} color={colors.text} />
-          <NewsReadingTime wordsCount={wordsCount} color={colors.text} />
-        </DateAndTimeContainer>
-      </NewsInformationContainer>
-    </Container>
+    <TouchableOpacity onPress={handlePress}>
+      <Container>
+        <ThumbnailContainer>
+          <Thumbnail
+            resizeMode="cover"
+            source={{
+              uri: thumbnailUrl,
+            }}
+          />
+        </ThumbnailContainer>
+        <NewsInformationContainer>
+          <Title variant="h4" numberOfLines={3}>
+            {title}
+          </Title>
+          <Description variant="small" numberOfLines={6} ellipsizeMode="tail">
+            {description}
+          </Description>
+          <DateAndTimeContainer>
+            <NewsDate date={date} color={colors.text} />
+            <NewsReadingTime wordsCount={wordsCount} color={colors.text} />
+          </DateAndTimeContainer>
+        </NewsInformationContainer>
+      </Container>
+    </TouchableOpacity>
   );
 };
