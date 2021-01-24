@@ -38,7 +38,7 @@ export const NewsBodyContainer = ({
   const innerScrollContainerStyles = {
     borderTopLeftRadius: radiusAnimation,
     borderTopRightRadius: radiusAnimation,
-    paddingBottom: 400,
+    paddingBottom: 300,
   };
 
   return (
