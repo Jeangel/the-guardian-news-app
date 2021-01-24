@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
-import { Button } from '../molecules/Button';
+import { Button } from '../atoms/Button';
 import { Icon } from '../atoms/Icon';
 import { useTheme } from '../../hooks';
-import { TextInput } from '../molecules/TextInput';
+import { TextInput } from '../atoms/TextInput';
 import _ from 'lodash';
 
 const Container = styled(View)`

@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components';
 import _ from 'lodash';
-import { Text } from '../atoms/Text';
+import { Text } from './Text';
 
 const Container = styled(TouchableOpacity)`
   border-radius: 16px;
