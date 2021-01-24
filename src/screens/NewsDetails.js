@@ -8,6 +8,8 @@ import { SCREEN_HEIGHT } from '../utils';
 import { NewsBackgroundImage } from '../components/organisms/NewsBackgroundImage';
 import { NewsBodyContainer } from '../components/organisms/NewsBodyContainer';
 import { BackButton } from '../components/molecules/BackButton';
+import { Tag } from '../components/atoms/Tag';
+import { useTheme } from '../hooks';
 
 const IMAGE_HEIGHT = 350;
 const OVERLAPPING_SPACE = 50;
@@ -70,7 +72,24 @@ const Container = styled(Surface)`
   padding-top: ${getStatusBarHeight()}px;
 `;
 
+const NewsTags = styled(View)`
+  flex-direction: row;
+`;
+
+const NewsTag = ({ text, icon }) => {
+  const theme = useTheme();
+  return (
+    <Tag
+      backgroundColor={theme.colors.primaryLight}
+      color={theme.colors.primary}
+      text={text}
+      icon={icon}
+    />
+  );
+};
+
 export const NewsDetails = () => {
+  const theme = useTheme();
   const scrollY = useRef(new Animated.Value(0)).current;
   const item = {
     title:
@@ -98,6 +117,10 @@ export const NewsDetails = () => {
         topContainerHeight={IMAGE_HEIGHT}
         overlappingSpace={OVERLAPPING_SPACE}
         scrollY={scrollY}>
+        <NewsTags>
+          <NewsTag text={'Technology'} icon={'tag'} />
+          <NewsTag text={'Mike Pattenden'} icon={'hand-writing'} />
+        </NewsTags>
         <Content />
       </NewsBodyContainer>
     </Container>
