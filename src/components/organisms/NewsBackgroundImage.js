@@ -7,6 +7,7 @@ import { SCREEN_WIDTH } from '../../utils';
 import { useTheme } from '../../hooks';
 import { NewsDate } from '../molecules/NewsDate';
 import { NewsReadingTime } from '../molecules/NewsReadingTime';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const AnimatedImage = styled(AnimatedBackgroundImage)`
   height: ${({ height }) => height}px;
@@ -33,7 +34,7 @@ const AnimatedContent = styled(Animated.View)`
   width: 100%;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 40;
+  padding-bottom: ${({ overlappingSpace }) => overlappingSpace}px;
 `;
 
 const NewsTitle = styled(Text)`
@@ -52,10 +53,17 @@ const NewsInformation = styled(View)`
  *
  * @param {{
  *  item: { thumbnailUrl: string, date: string, wordsCount: number },
- *  scrollY: Animated.Value
+ *  scrollY: Animated.Value,
+ *  height: number,
+ *  overlappingSpace: number
  * }} props
  */
-export const NewsBackgroundImage = ({ item, scrollY, height }) => {
+export const NewsBackgroundImage = ({
+  item,
+  scrollY,
+  height,
+  overlappingSpace,
+}) => {
   const theme = useTheme();
   const imageScaleAnimation = scrollY.interpolate({
     inputRange: [10, height],
@@ -64,8 +72,8 @@ export const NewsBackgroundImage = ({ item, scrollY, height }) => {
   });
 
   const translateViewAnimation = scrollY.interpolate({
-    inputRange: [0, height / 2],
-    outputRange: [0, height * -1 + 150],
+    inputRange: [0, height / 1.5],
+    outputRange: [0, height * -1],
     extrapolate: 'clamp',
   });
 
@@ -77,10 +85,14 @@ export const NewsBackgroundImage = ({ item, scrollY, height }) => {
       <ImageOverlay>
         <AnimatedContent
           height={height}
+          overlappingSpace={overlappingSpace}
           style={{
             transform: [{ translateY: translateViewAnimation }],
           }}>
-          <NewsTitle variant="h1">Hi dudes</NewsTitle>
+          <NewsTitle variant="h1">
+            Working around Covid-19: the software suite helping businesses
+            operate safely
+          </NewsTitle>
           <NewsInformation>
             <NewsDate date={item.date} color={theme.colors.white} />
             <NewsReadingTime

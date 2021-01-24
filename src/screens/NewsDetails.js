@@ -6,8 +6,10 @@ import { Surface } from '../components/atoms/Surface';
 import { SCREEN_HEIGHT } from '../utils';
 import { NewsBackgroundImage } from '../components/organisms/NewsBackgroundImage';
 import { NewsBodyContainer } from '../components/organisms/NewsBodyContainer';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const IMAGE_HEIGHT = 350;
+const OVERLAPPING_SPACE = 50;
 
 const Content = () => (
   <View>
@@ -64,6 +66,7 @@ const Container = styled(Surface)`
   align-items: center;
   justify-content: center;
   height: ${SCREEN_HEIGHT}px;
+  padding-top: ${getStatusBarHeight()}px;
 `;
 
 export const NewsDetails = () => {
@@ -84,12 +87,14 @@ export const NewsDetails = () => {
       <StatusBar barStyle="light-content" />
       <NewsBackgroundImage
         height={IMAGE_HEIGHT}
+        overlappingSpace={OVERLAPPING_SPACE}
         item={item}
         scrollY={scrollY}
       />
       <NewsBodyContainer
         item={item}
         topContainerHeight={IMAGE_HEIGHT}
+        overlappingSpace={OVERLAPPING_SPACE}
         scrollY={scrollY}>
         <Content />
       </NewsBodyContainer>

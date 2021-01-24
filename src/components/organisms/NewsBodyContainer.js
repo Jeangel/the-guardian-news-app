@@ -1,10 +1,11 @@
 import React from 'react';
 import { Animated } from 'react-native';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import styled from 'styled-components';
 import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../utils';
 
 const AnimatedScrollView = styled(Animated.ScrollView)`
-  padding-top: ${({ paddingTop }) => paddingTop}px;
+  padding-top: ${({ paddingTop, overlappingSpace }) => paddingTop - overlappingSpace - getStatusBarHeight()}px;
 `;
 
 const InnerScrollContainer = styled(Animated.View)`
@@ -12,7 +13,6 @@ const InnerScrollContainer = styled(Animated.View)`
   height: 100%;
   min-height: ${SCREEN_HEIGHT}px;
   width: ${SCREEN_WIDTH}px;
-  margin-top: -40px;
   padding: 30px;
 `;
 
@@ -26,6 +26,7 @@ const InnerScrollContainer = styled(Animated.View)`
 export const NewsBodyContainer = ({
   children,
   scrollY,
+  overlappingSpace,
   topContainerHeight,
   ...rest
 }) => {
@@ -45,6 +46,7 @@ export const NewsBodyContainer = ({
       {...rest}
       showsVerticalScrollIndicator={false}
       paddingTop={topContainerHeight}
+      overlappingSpace={overlappingSpace}
       // contentContainerStyle={{ marginBottom: -100 }}
       onScroll={Animated.event(
         [{ nativeEvent: { contentOffset: { y: scrollY } } }],
