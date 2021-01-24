@@ -1,54 +1,73 @@
-import React from 'react';
-import { View, ImageBackground, StatusBar } from 'react-native';
+import React, { useRef } from 'react';
+import { View, StatusBar, Animated } from 'react-native';
 import styled from 'styled-components';
 import { Text } from '../components/atoms/Text';
-import { NewsDate } from '../components/molecules/NewsDate';
-import { NewsReadingTime } from '../components/molecules/NewsReadingTime';
-import { useTheme } from '../hooks';
+import { Surface } from '../components/atoms/Surface';
+import { SCREEN_HEIGHT } from '../utils';
+import { NewsBackgroundImage } from '../components/organisms/NewsBackgroundImage';
+import { NewsBodyContainer } from '../components/organisms/NewsBodyContainer';
 
-const CoverContentContainer = styled(View)`
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+const IMAGE_HEIGHT = 350;
+
+const Content = () => (
+  <View>
+    <Text style={{ textAlign: 'justify' }}>
+      But I must explain to you how all this mistaken idea of denouncing
+      pleasure and praising pain was born and I will give you a complete account
+      of the system, and expound the actual teachings of the great explorer of
+      the truth, the master-builder of human happiness. No one rejects,
+      dislikes, or avoids pleasure itself, because it is pleasure, but because
+      those who do not know how to pursue pleasure rationally encounter
+      consequences that are extremely painful. Nor again is there anyone who
+      loves or pursues or desires to obtain pain of itself, because it is pain,
+      but because occasionally circumstances occur in which toil and pain can
+      procure him some great pleasure. To take a trivial example, which of us
+      ever undertakes laborious physical exercise, except to obtain some
+      advantage from it? But who has any right to find fault with a man who
+      chooses to enjoy a pleasure that has no annoying consequences, or one who
+      avoids a pain that produces no resultant pleasure?
+    </Text>
+    <Text style={{ textAlign: 'justify' }}>
+      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+      praesentium voluptatum deleniti atque corrupti quos dolores et quas
+      molestias excepturi sint occaecati cupiditate non provident, similique
+      sunt in culpa qui officia deserunt mollitia animi, id est laborum et
+      dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio.
+      Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+      impedit quo minus id quod maxime placeat facere possimus, omnis voluptas
+      assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut
+      officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
+      repudiandae sint et molestiae non recusandae. Itaque earum rerum hic
+      tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias
+      consequatur aut perferendis doloribus asperiores repellat.
+    </Text>
+    <Text style={{ textAlign: 'justify' }}>
+      On the other hand, we denounce with righteous indignation and dislike men
+      who are so beguiled and demoralized by the charms of pleasure of the
+      moment, so blinded by desire, that they cannot foresee the pain and
+      trouble that are bound to ensue; and equal blame belongs to those who fail
+      in their duty through weakness of will, which is the same as saying
+      through shrinking from toil and pain. These cases are perfectly simple and
+      easy to distinguish. In a free hour, when our power of choice is
+      untrammelled and when nothing prevents our being able to do what we like
+      best, every pleasure is to be welcomed and every pain avoided. But in
+      certain circumstances and owing to the claims of duty or the obligations
+      of business it will frequently occur that pleasures have to be repudiated
+      and annoyances accepted. The wise man therefore always holds in these
+      matters to this principle of selection: he rejects pleasures to secure
+      other greater pleasures, or else he endures pains to avoid worse pains.
+    </Text>
+  </View>
+);
+
+const Container = styled(Surface)`
   align-items: center;
-  justify-content: flex-end;
-  padding: 0 28px 7px 28px;
-  padding-left: 28px;
-  padding-right: 28px;
-`;
-
-const CoverImage = styled(ImageBackground)`
-  height: 320px;
-  width: 100%;
-`;
-
-const NewsTitle = styled(Text)`
-  color: ${({ theme }) => theme.colors.white};
-  text-align: center;
-  margin-bottom: 13px;
-`;
-
-const NewsInformation = styled(View)`
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  height: ${SCREEN_HEIGHT}px;
 `;
 
 export const NewsDetails = () => {
-  const theme = useTheme();
-  // const dummyNews = [
-  //   {
-  //     title:
-  //       'Colombia protests against police brutality leave at least 10 dead.',
-  //     description:
-  //       'Unrest sparked by police killing of lawyer in Bogotá spreads to Medellín, Cali and Manizales.\nUnrest sparked by police killing of lawyer in Bogotá spreads to Medellín, Cali and Manizales.',
-  //     date: '2020-12-29T18:55:51Z',
-  //     wordsCount: 800,
-  //     thumbnailUrl:
-  //       'https://media.guim.co.uk/988ee711d2dc75cb62c0a88957fda40ee175fdb0/440_500_1926_1156/500.jpg',
-  //   },
-  // ];
-
+  const scrollY = useRef(new Animated.Value(0)).current;
   const item = {
     title:
       'Working around Covid-19: the software suite helping businesses operate safely',
@@ -61,20 +80,19 @@ export const NewsDetails = () => {
   };
 
   return (
-    <View>
+    <Container>
       <StatusBar barStyle="light-content" />
-      <CoverImage source={{ uri: item.thumbnailUrl }} resizeMode="cover">
-        <CoverContentContainer>
-          <NewsTitle variant="h1">{item.title}</NewsTitle>
-          <NewsInformation>
-            <NewsDate date={item.date} color={theme.colors.white} />
-            <NewsReadingTime
-              wordsCount={item.wordsCount}
-              color={theme.colors.white}
-            />
-          </NewsInformation>
-        </CoverContentContainer>
-      </CoverImage>
-    </View>
+      <NewsBackgroundImage
+        height={IMAGE_HEIGHT}
+        item={item}
+        scrollY={scrollY}
+      />
+      <NewsBodyContainer
+        item={item}
+        topContainerHeight={IMAGE_HEIGHT}
+        scrollY={scrollY}>
+        <Content />
+      </NewsBodyContainer>
+    </Container>
   );
 };
