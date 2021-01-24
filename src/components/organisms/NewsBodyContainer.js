@@ -10,9 +10,10 @@ const AnimatedScrollView = styled(Animated.ScrollView)`
 
 const InnerScrollContainer = styled(Animated.View)`
   background-color: ${({ theme }) => theme.colors.surface};
-  height: 100%;
   min-height: ${SCREEN_HEIGHT}px;
-  width: ${SCREEN_WIDTH}px;
+  min-width: ${SCREEN_WIDTH}px;
+  height: 100%;
+  width: 100%;
   padding: 30px;
 `;
 
