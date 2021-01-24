@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import { SCREEN_WIDTH, SCREEN_HEIGHT } from '../../utils';
 
 const AnimatedScrollView = styled(Animated.ScrollView)`
-  padding-top: ${({ paddingTop, overlappingSpace }) => paddingTop - overlappingSpace - getStatusBarHeight()}px;
+  padding-top: ${({ paddingTop, overlappingSpace }) =>
+    paddingTop - overlappingSpace - getStatusBarHeight()}px;
 `;
 
 const InnerScrollContainer = styled(Animated.View)`
@@ -48,7 +49,6 @@ export const NewsBodyContainer = ({
       showsVerticalScrollIndicator={false}
       paddingTop={topContainerHeight}
       overlappingSpace={overlappingSpace}
-      // contentContainerStyle={{ marginBottom: -100 }}
       onScroll={Animated.event(
         [{ nativeEvent: { contentOffset: { y: scrollY } } }],
         { useNativeDriver: true },
