@@ -8,5 +8,6 @@ export const shared = {
     primaryLight: '#FFF1ED',
     primary50: '#FF77548C',
     secondary: '#312651',
+    transparent: 'transparent',
   },
 };

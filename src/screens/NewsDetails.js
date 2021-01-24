@@ -1,12 +1,13 @@
 import React, { useRef } from 'react';
 import { View, StatusBar, Animated } from 'react-native';
 import styled from 'styled-components';
+import { getStatusBarHeight } from 'react-native-status-bar-height';
 import { Text } from '../components/atoms/Text';
 import { Surface } from '../components/atoms/Surface';
 import { SCREEN_HEIGHT } from '../utils';
 import { NewsBackgroundImage } from '../components/organisms/NewsBackgroundImage';
 import { NewsBodyContainer } from '../components/organisms/NewsBodyContainer';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
+import { BackButton } from '../components/molecules/BackButton';
 
 const IMAGE_HEIGHT = 350;
 const OVERLAPPING_SPACE = 50;
@@ -85,6 +86,7 @@ export const NewsDetails = () => {
   return (
     <Container>
       <StatusBar barStyle="light-content" />
+      <BackButton scrollY={scrollY} maxInputRangeAnimation={IMAGE_HEIGHT} />
       <NewsBackgroundImage
         height={IMAGE_HEIGHT}
         overlappingSpace={OVERLAPPING_SPACE}
