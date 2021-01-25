@@ -7,7 +7,6 @@ import { SCREEN_WIDTH } from '../../utils';
 import { useTheme } from '../../hooks';
 import { NewsDate } from '../molecules/NewsDate';
 import { NewsReadingTime } from '../molecules/NewsReadingTime';
-import { getStatusBarHeight } from 'react-native-status-bar-height';
 
 const AnimatedImage = styled(AnimatedBackgroundImage)`
   height: ${({ height }) => height}px;
