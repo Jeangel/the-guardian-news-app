@@ -13,6 +13,7 @@ const Container = styled(TouchableOpacity)`
   justify-content: center;
   box-shadow: 0px 2px 4px ${({ theme }) => `${theme.colors.primary50}`};
   elevation: 8;
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
 `;
 
 /**
@@ -29,7 +30,8 @@ const Container = styled(TouchableOpacity)`
  *  text?: string,
  *  variant?: TextVariant,
  *  style?: ViewStyle,
- *  onPress: Function
+ *  onPress: Function,
+ *  disabled?: boolean
  * }} props
  */
 export const Button = ({
@@ -38,6 +40,7 @@ export const Button = ({
   variant = 'primary',
   onPress,
   style,
+  disabled,
   ...rest
 }) => {
   const handlePress = () => {
@@ -57,6 +60,7 @@ export const Button = ({
       style={style}
       onPress={handlePress}
       variant={variant}
+      disabled={disabled}
       accessible
       {...rest}>
       <View>{content}</View>
