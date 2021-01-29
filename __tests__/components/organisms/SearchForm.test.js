@@ -21,4 +21,13 @@ describe('SearchForm component', () => {
     fireEvent.press(searchButton);
     expect(mockOnPress).toBeCalledWith('Technology');
   });
+  test('If the searchbox does not have a value it will not execute the onSearchPress', () => {
+    const mockOnPress = jest.fn();
+    const { getByA11yLabel } = renderWithTheme(
+      <SearchForm onSearchPress={mockOnPress} />,
+    );
+    const searchButton = getByA11yLabel('search button');
+    fireEvent.press(searchButton);
+    expect(mockOnPress).not.toHaveBeenCalled();
+  });
 });

@@ -46,6 +46,7 @@ export const SearchForm = ({ defaultSearchValue, onSearchPress }) => {
       />
       <Button
         onPress={handleOnSearchPress}
+        disabled={_.isEmpty(searchValue)}
         accessibilityLabel={'search button'}
         accessibilityHint={
           'Performs the action to search news by the value in search input'
