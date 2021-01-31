@@ -24,6 +24,9 @@ export const SearchScreen = () => {
       description: e.fields.trailText,
       wordsCount: Number(e.fields.wordcount),
       thumbnailUrl: e.fields.thumbnail,
+      body: e.fields.body,
+      author: e.fields.byline,
+      sectionName: e.sectionName,
       date: e.webPublicationDate,
     }));
     setNews(formattedNews);
@@ -32,9 +35,7 @@ export const SearchScreen = () => {
 
   const listHeader = (
     <View>
-      <Title variant="h1">
-        Search {'\n'}your daily news {JSON.stringify(isShowingSpinner)}
-      </Title>
+      <Title variant="h1">Search {'\n'}your daily news</Title>
       <SearchForm onSearchPress={handleOnSearchPress} />
     </View>
   );
