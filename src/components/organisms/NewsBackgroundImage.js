@@ -38,7 +38,7 @@ const AnimatedContent = styled(Animated.View)`
 
 const NewsTitle = styled(Text)`
   color: ${({ theme }) => theme.colors.white};
-  text-align: center;
+  text-align: justify;
   margin-bottom: 13px;
 `;
 
@@ -88,10 +88,7 @@ export const NewsBackgroundImage = ({
           style={{
             transform: [{ translateY: translateViewAnimation }],
           }}>
-          <NewsTitle variant="h1">
-            Working around Covid-19: the software suite helping businesses
-            operate safely
-          </NewsTitle>
+          <NewsTitle variant="h1">{item.title}</NewsTitle>
           <NewsInformation>
             <NewsDate date={item.date} color={theme.colors.white} />
             <NewsReadingTime
