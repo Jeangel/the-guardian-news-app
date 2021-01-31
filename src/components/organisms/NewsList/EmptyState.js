@@ -9,9 +9,10 @@ const Container = styled(View)`
   justify-content: center;
 `;
 
-export const EmptyState = () => {
+export const EmptyState = (props) => {
   return (
     <Container
+      {...props}
       accessible
       accessibilityLabel={'no results'}
       accessibilityHint={'There are no results'}>

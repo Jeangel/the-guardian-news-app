@@ -3,6 +3,11 @@ import { FlatList } from 'react-native';
 import { EmptyState } from './EmptyState';
 import { NewsCard } from '../NewsCard';
 import { useNavigation } from '@react-navigation/native';
+import styled from 'styled-components';
+
+const SearchListEmptyState = styled(EmptyState)`
+  margin-top: 100px;
+`;
 
 /**
  *
@@ -13,9 +18,6 @@ import { useNavigation } from '@react-navigation/native';
  */
 export const NewsList = ({ news = [], header }) => {
   const navigation = useNavigation();
-  if (!news.length) {
-    return <EmptyState />;
-  }
 
   const renderItem = ({ item }) => {
     const navigateToDetails = () => {
@@ -36,6 +38,7 @@ export const NewsList = ({ news = [], header }) => {
       data={news}
       contentContainerStyle={contentContainerStyle}
       showsVerticalScrollIndicator={false}
+      ListEmptyComponent={SearchListEmptyState}
     />
   );
 };
