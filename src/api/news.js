@@ -4,13 +4,14 @@ import Axios from 'axios';
 /**
  *
  * @param {string} query
+ * @returns {Promise<Array>}
  */
 export const searchNews = async (query = '') => {
   const url = `${Config.THE_GUARDIAN_API_BASE_URL}/search`;
   const params = {
     q: query,
     'api-key': Config.THE_GUARDIAN_API_KEY,
-    'show-fields': 'thumbnail,wordcount',
+    'show-fields': 'thumbnail,wordcount,headline,trailText',
   };
   try {
     const { data } = await Axios.get(url, { params });
