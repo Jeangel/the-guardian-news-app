@@ -7,6 +7,7 @@ import { Surface } from '../atoms/Surface';
 import { NewsDate } from '../molecules/NewsDate';
 import { NewsReadingTime } from '../molecules/NewsReadingTime';
 import { useTheme } from '../../hooks';
+import { stripHtmlTags } from '../../utils';
 
 const Container = styled(Surface)`
   padding: 11px 11px 11px 8px;
@@ -88,7 +89,7 @@ export const NewsCard = ({ newsItem, onPress }) => {
             {title}
           </Title>
           <Description variant="small" numberOfLines={6} ellipsizeMode="tail">
-            {description}
+            {stripHtmlTags(description)}
           </Description>
           <DateAndTimeContainer>
             <NewsDate date={date} color={colors.text} />
