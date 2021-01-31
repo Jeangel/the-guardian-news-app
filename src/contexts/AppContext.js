@@ -12,4 +12,3 @@ export const AppProvider = ({ children, ...rest }) => {
     <AppContext.Provider value={{ ...rest }}>{children}</AppContext.Provider>
   );
 };
-
