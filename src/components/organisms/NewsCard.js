@@ -21,6 +21,7 @@ const Container = styled(Surface)`
 const NewsInformationContainer = styled(View)`
   width: 65%;
   padding: 2px 0;
+  justify-content: space-between;
 `;
 
 const ThumbnailContainer = styled(View)`
@@ -48,6 +49,7 @@ const DateAndTimeContainer = styled(View)`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  padding-right: 5px;
 `;
 
 /**
