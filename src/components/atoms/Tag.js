@@ -15,6 +15,7 @@ const Container = styled(View)`
   justify-content: center;
   margin-bottom: 20px;
   margin-right: 10px;
+  max-width: 170px;
 `;
 
 const LabelText = styled(Text)`
@@ -33,6 +34,8 @@ const LabelText = styled(Text)`
 export const Tag = ({ color, backgroundColor, text, icon }) => (
   <Container backgroundColor={backgroundColor} borderColor={color}>
     <Icon name={icon} size={15} color={color} />
-    <LabelText color={color}>{text}</LabelText>
+    <LabelText color={color} numberOfLines={1} ellipsizeMode="tail">
+      {text}
+    </LabelText>
   </Container>
 );
