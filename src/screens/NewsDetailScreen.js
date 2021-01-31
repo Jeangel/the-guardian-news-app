@@ -8,8 +8,8 @@ import { NewsBackgroundImage } from '../components/organisms/NewsBackgroundImage
 import { NewsBodyContainer } from '../components/organisms/NewsBodyContainer';
 import { BackButton } from '../components/molecules/BackButton';
 import { Tag } from '../components/atoms/Tag';
+import { HTML } from '../components/atoms/HTML';
 import { useTheme } from '../hooks';
-import HTML from 'react-native-render-html';
 
 const IMAGE_HEIGHT = 350;
 const OVERLAPPING_SPACE = 50;
@@ -59,13 +59,7 @@ export const NewsDetailScreen = ({ route }) => {
           <NewsTag text={item.sectionName} icon={'tag'} />
           <NewsTag text={item.author} icon={'hand-writing'} />
         </NewsTags>
-        <HTML
-          source={{ html: item.body }}
-          contentWidth={350}
-          tagsStyles={{
-            img: { borderColor: 'red', borderStyle: 'solid' },
-          }}
-        />
+        <HTML source={{ html: item.body }} />
       </NewsBodyContainer>
     </Container>
   );
