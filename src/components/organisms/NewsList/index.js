@@ -32,6 +32,7 @@ export const NewsList = ({ news = [], header }) => {
 
   return (
     <FlatList
+      keyboardShouldPersistTaps="always"
       ListHeaderComponent={header}
       renderItem={renderItem}
       keyExtractor={keyExtractor}
