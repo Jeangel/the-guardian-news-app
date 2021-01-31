@@ -11,7 +11,7 @@ export const searchNews = async (query = '') => {
   const params = {
     q: query,
     'api-key': Config.THE_GUARDIAN_API_KEY,
-    'show-fields': 'thumbnail,wordcount,headline,trailText',
+    'show-fields': 'thumbnail,wordcount,headline,trailText,body,byline',
   };
   try {
     const { data } = await Axios.get(url, { params });
