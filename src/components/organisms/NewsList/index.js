@@ -21,7 +21,7 @@ export const NewsList = ({ news = [], header }) => {
 
   const renderItem = ({ item }) => {
     const navigateToDetails = () => {
-      navigation.navigate('details', item);
+      navigation.navigate('details', { item });
     };
     return <NewsCard newsItem={item} onPress={navigateToDetails} />;
   };
