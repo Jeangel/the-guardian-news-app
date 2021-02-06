@@ -20,7 +20,7 @@ const AnimatedImage = styled(AnimatedBackgroundImage)`
 const ImageOverlay = styled(View)`
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.7);
   align-items: center;
   justify-content: flex-end;
   padding: 0 28px 7px 28px;

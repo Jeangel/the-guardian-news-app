@@ -1,8 +1,7 @@
 import React from 'react';
-import { Animated } from 'react-native';
+import { Animated, TouchableOpacity } from 'react-native';
 import styled from 'styled-components';
 import { useNavigation } from '@react-navigation/native';
-import { Button } from '../atoms/Button';
 import { Icon } from '../atoms/Icon';
 import { useTheme } from '../../hooks';
 
@@ -25,6 +24,12 @@ const GoBackButtonOverlay = styled(Animated.View)`
   background-color: ${({ theme }) => theme.colors.black};
   opacity: 0;
   position: absolute;
+  border-radius: 100px;
+`;
+
+const GoBackButton = styled(TouchableOpacity)`
+  background-color: transparent;
+  padding: 10px;
   border-radius: 100px;
 `;
 
@@ -57,9 +62,9 @@ export const BackButton = ({ scrollY, maxInputRangeAnimation }) => {
         transform: [{ translateY: translateBackButtonAnimation }],
       }}>
       <GoBackButtonOverlay style={{ opacity: goBackOverlayOpacityAnimation }} />
-      <Button variant="transparent" onPress={navigation.goBack}>
+      <GoBackButton onPress={navigation.goBack}>
         <Icon size={20} color={theme.colors.white} name="arrow-left" />
-      </Button>
+      </GoBackButton>
     </GoBackContainer>
   );
 };

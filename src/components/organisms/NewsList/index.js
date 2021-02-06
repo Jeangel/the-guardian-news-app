@@ -4,6 +4,7 @@ import { EmptyState } from './EmptyState';
 import { NewsCard } from '../NewsCard';
 import { useNavigation } from '@react-navigation/native';
 import styled from 'styled-components';
+import { useTheme } from '../../../hooks';
 
 const SearchListEmptyState = styled(EmptyState)`
   margin-top: 100px;
@@ -18,6 +19,7 @@ const SearchListEmptyState = styled(EmptyState)`
  */
 export const NewsList = ({ news = [], header }) => {
   const navigation = useNavigation();
+  const theme = useTheme();
 
   const renderItem = ({ item }) => {
     const navigateToDetails = () => {
@@ -28,7 +30,10 @@ export const NewsList = ({ news = [], header }) => {
 
   const keyExtractor = (_, index) => `key-${index}`;
 
-  const contentContainerStyle = { padding: 5 };
+  const contentContainerStyle = {
+    paddingHorizontal: 15,
+    backgroundColor: theme.colors.surface,
+  };
 
   return (
     <FlatList

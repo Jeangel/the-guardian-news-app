@@ -76,7 +76,7 @@ export const NewsCard = ({ newsItem, onPress }) => {
   };
 
   return (
-    <TouchableOpacity onPress={handlePress}>
+    <TouchableOpacity onPress={handlePress} activeOpacity={0.85}>
       <Container>
         <ThumbnailContainer>
           <Thumbnail
