@@ -10,19 +10,22 @@ const Container = styled(View)`
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-export const Spinner = ({ isVisible }) => (
-  <Container isVisible={isVisible}>
-    <Spinkit
-      type="9CubeGrid"
-      color={'white'}
-      size={100}
-      isVisible={isVisible}
-    />
-  </Container>
-);
+export const Spinner = ({ isVisible }) =>
+  isVisible ? (
+    <Container>
+      <Spinkit
+        type="9CubeGrid"
+        color={'white'}
+        size={100}
+        isVisible={isVisible}
+      />
+    </Container>
+  ) : (
+    <React.Fragment />
+  );

@@ -17,7 +17,7 @@ export const searchNews = async (query = '') => {
     const { data } = await Axios.get(url, { params });
     return data.response.results;
   } catch (error) {
-    return Promise.reject([]);
+    return Promise.reject(error);
     /**
      * TODO: Somehow handle error
      */
