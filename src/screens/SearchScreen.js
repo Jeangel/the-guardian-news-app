@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components';
-import _ from 'lodash';
 import { Text } from '../components/atoms/Text';
 import { Canvas } from '../components/atoms/Canvas';
 import { SearchForm } from '../components/organisms/SearchForm';
@@ -14,7 +13,7 @@ const Title = styled(Text)`
 `;
 
 export const SearchScreen = () => {
-  const [isShowingSpinner, showSpinner, hideSpinner] = useSpinnerContext();
+  const [_, showSpinner, hideSpinner] = useSpinnerContext();
   const [news, setNews] = useState([]);
   const handleOnSearchPress = async (searchValue) => {
     showSpinner();
