@@ -8,6 +8,6 @@ const StyledSafeAreaView = styled(SafeAreaView)`
   padding-top: 40px;
 `;
 
-export const Canvas = ({ children }) => {
-  return <StyledSafeAreaView>{children}</StyledSafeAreaView>;
+export const Canvas = ({ children, ...rest }) => {
+  return <StyledSafeAreaView {...rest}>{children}</StyledSafeAreaView>;
 };

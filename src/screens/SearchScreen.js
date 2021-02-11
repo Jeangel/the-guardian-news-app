@@ -40,7 +40,7 @@ export const SearchScreen = () => {
   );
 
   return (
-    <Canvas>
+    <Canvas edges={['top']}>
       <NewsList news={news} header={listHeader} />
     </Canvas>
   );
