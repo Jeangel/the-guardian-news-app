@@ -32,6 +32,7 @@ export const NewsList = ({ news = [], header }) => {
 
   const contentContainerStyle = {
     paddingHorizontal: 15,
+    paddingBottom: 15,
     backgroundColor: theme.colors.surface,
   };
 

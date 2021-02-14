@@ -11,8 +11,11 @@ const styles = StyleSheet.create({
   label: {
     fontFamily: 'DM Sans',
     fontSize: 13,
+    flex: 1,
   },
-  icon: {},
+  icon: {
+    flex: 1,
+  },
   tab: {
     paddingTop: 10,
   },
@@ -26,6 +29,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 6,
     borderTopWidth: 0,
+    paddingBottom: 10,
   },
 });
 
