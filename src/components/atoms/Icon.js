@@ -1,7 +1,12 @@
 import React from 'react';
 import { Svg, Path, G, ClipPath, Defs, Rect } from 'react-native-svg';
 
-export const Icon = ({ name, color = 'white', size = 20 }) => {
+export const Icon = ({
+  name,
+  color = 'white',
+  fillColor = 'transparent',
+  size = 20,
+}) => {
   switch (name) {
     case 'filters':
       return (
@@ -58,6 +63,7 @@ export const Icon = ({ name, color = 'white', size = 20 }) => {
             stroke={color}
             stroke-width="2"
             stroke-linecap="square"
+            fill={fillColor}
           />
         </Svg>
       );
