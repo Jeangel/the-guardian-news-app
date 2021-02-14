@@ -16,6 +16,7 @@ const Container = styled(Surface)`
   elevation: 8;
   border-radius: 15px;
   flex-direction: row;
+  flex: 0;
 `;
 
 const NewsInformationContainer = styled(View)`
