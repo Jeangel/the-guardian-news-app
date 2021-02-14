@@ -8,8 +8,15 @@ const NewsText = styled(Text)`
   text-align: justify;
 `;
 
-const makeTextRendererFn = (variant = 'body') => (htmlAttribs, children) => (
-  <NewsText variant={variant}>{children}</NewsText>
+const makeTextRendererFn = (variant = 'body') => (
+  htmlAttribs,
+  children,
+  convertedCSSStyles,
+  passProps,
+) => (
+  <NewsText variant={variant} {...passProps}>
+    {children}
+  </NewsText>
 );
 
 const makeHeadingStylesFn = (theme) => {
