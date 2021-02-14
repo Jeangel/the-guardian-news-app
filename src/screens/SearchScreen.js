@@ -19,6 +19,7 @@ export const SearchScreen = () => {
     showSpinner();
     const result = await searchNews(searchValue);
     const formattedNews = result.map((e) => ({
+      id: e.id,
       title: e.fields.headline,
       description: e.fields.trailText,
       wordsCount: Number(e.fields.wordcount),
