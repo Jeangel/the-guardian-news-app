@@ -38,7 +38,6 @@ const AnimatedContent = styled(Animated.View)`
 
 const NewsTitle = styled(Text)`
   color: ${({ theme }) => theme.colors.white};
-  text-align: justify;
   margin-bottom: 13px;
 `;
 
