@@ -7,6 +7,7 @@ import { SCREEN_HEIGHT } from '../utils';
 import { NewsBackgroundImage } from '../components/organisms/NewsBackgroundImage';
 import { NewsBodyContainer } from '../components/organisms/NewsBodyContainer';
 import { BackButton } from '../components/molecules/BackButton';
+import { ToggleBookmarkButton } from '../components/molecules/ToggleBookmarkButton';
 import { Tag } from '../components/atoms/Tag';
 import { HTML } from '../components/atoms/HTML';
 import { useTheme } from '../hooks';
@@ -44,6 +45,7 @@ export const NewsDetailScreen = ({ route }) => {
     <Container>
       <StatusBar barStyle="light-content" />
       <BackButton scrollY={scrollY} maxInputRangeAnimation={IMAGE_HEIGHT} />
+      <ToggleBookmarkButton currentNews={item} />
       <NewsBackgroundImage
         height={IMAGE_HEIGHT}
         overlappingSpace={OVERLAPPING_SPACE}
